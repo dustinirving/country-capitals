@@ -12,7 +12,7 @@ function quizTimer() {
         timer.textContent = "Time: " + secondsLeft
         localStorage.setItem("time", secondsLeft)
         if (secondsLeft === 60) {
-            window.location.href = "highscores.html"
+            window.location.href = "score.html"
         }
     }, 1000)
 }
@@ -85,7 +85,7 @@ secondAnswer.textContent = questions[0].answer2
 thirdAnswer.textContent = questions[0].answer3
 fourthAnswer.textContent = questions[0].answer4
 
-
+let printResult = document.querySelector("#result")
 
 
 function handleClick(event) {
@@ -94,10 +94,13 @@ function handleClick(event) {
         if (questions[j].correctAnswer === 'answerOne') {
             correctAnswers += 1
             localStorage.setItem("correctAnswers", correctAnswers)
+            printResult.textContent = "Correct!"
+        } else {
+            printResult.textContent = "Incorrect!"
         }
         j += 1
         if (j === questions.length) {
-            window.location.href = "highscores.html"
+            window.location.href = "score.html"
         }
         questioN.textContent = questions[j].question
         firstAnswer.textContent = questions[j].answer1
@@ -109,10 +112,13 @@ function handleClick(event) {
         if (questions[j].correctAnswer === 'answerTwo') {
             correctAnswers += 1
             localStorage.setItem("correctAnswers", correctAnswers)
+            printResult.textContent = "Correct!"
+        } else {
+            printResult.textContent = "Incorrect!"
         }
         j += 1
         if (j === questions.length) {
-            window.location.href = "highscores.html"
+            window.location.href = "score.html"
         }
         questioN.textContent = questions[j].question
         firstAnswer.textContent = questions[j].answer1
@@ -124,10 +130,13 @@ function handleClick(event) {
         if (questions[j].correctAnswer === 'answerThree') {
             correctAnswers += 1
             localStorage.setItem("correctAnswers", correctAnswers)
+            printResult.textContent = "Correct!"
+        } else {
+            printResult.textContent = "Incorrect!"
         }
         j += 1
         if (j === questions.length) {
-            window.location.href = "highscores.html"
+            window.location.href = "score.html"
         }
         questioN.textContent = questions[j].question
         firstAnswer.textContent = questions[j].answer1
@@ -139,10 +148,13 @@ function handleClick(event) {
         if (questions[j].correctAnswer === 'answerFour') {
             correctAnswers += 1
             localStorage.setItem("correctAnswers", correctAnswers)
+            printResult.textContent = "Correct!"
+        } else {
+            printResult.textContent = "Incorrect!"
         }
         j += 1
         if (j === questions.length) {
-            window.location.href = "highscores.html"
+            window.location.href = "score.html"
         }
         questioN.textContent = questions[j].question
         firstAnswer.textContent = questions[j].answer1

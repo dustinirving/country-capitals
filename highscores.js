@@ -1,9 +1,14 @@
 let listOfHighscores = document.querySelector(".list-group")
 
-let score = document.createElement("li")
+let highScores = JSON.parse(localStorage.getItem("highscores")) || []
 
-let name = prompt("Please Enter your name")
 
-score.textContent = name + " : " + localStorage.getItem("time") * localStorage.getItem("correctAnswers")
+listOfHighscores.innerHTML = highScores.map(score => {
+    return (`<li class="high-score">${score.name}-${score.score}</li>`)
+}).join('')
 
-listOfHighscores.appendChild(score)
+let playAgain = document.querySelector("#play-again")
+
+playAgain.addEventListener("click", function() {
+    window.location.href = "index.html"
+})
