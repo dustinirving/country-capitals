@@ -1,3 +1,7 @@
+let timer = document.querySelector("#timer")
+timer.textContent = "Time: " + localStorage.getItem("time")
+
+
 let scoreMessage = document.querySelector("#final-score")
 
 let playAgain = document.querySelector("#play-again")
@@ -6,8 +10,8 @@ playAgain.addEventListener("click", function() {
     window.location.href = "index.html"
 })
 
-
-scoreMessage.textContent = "Your final score is " + localStorage.getItem("time") * localStorage.getItem("correctAnswers") + "."
+timer.textContent = "Time: " + localStorage.getItem("time")
+scoreMessage.textContent = "Your final score is " + localStorage.getItem("time") + "."
 
 let button = document.querySelector("#button")
 
@@ -17,7 +21,7 @@ let maxHighscores = 5
 
 button.addEventListener("click", function() {
     let score = {
-        score: localStorage.getItem("time") * localStorage.getItem("correctAnswers"),
+        score: localStorage.getItem("time"),
         name: document.querySelector("#name").value
     }
     highscores.push(score)

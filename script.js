@@ -9,9 +9,9 @@ let secondsLeft = 60
 function quizTimer() {
     let timerInterval = setInterval(function() {
         secondsLeft = secondsLeft - 1
-        timer.textContent = "Time: " + secondsLeft
         localStorage.setItem("time", secondsLeft)
-        if (secondsLeft === 60) {
+        timer.textContent = "Time: " + secondsLeft
+        if (secondsLeft === 0) {
             window.location.href = "score.html"
         }
     }, 1000)
@@ -76,7 +76,6 @@ let thirdAnswer = document.querySelector("#answer3")
 let fourthAnswer = document.querySelector("#answer4")
 let answers = document.querySelector("#answers")
 
-let correctAnswers = 0
 let j = 0
 
 questioN.textContent = questions[0].question
@@ -89,79 +88,53 @@ let printResult = document.querySelector("#result")
 
 
 function handleClick(event) {
-
     if (event.target.matches("#answer1")) {
         if (questions[j].correctAnswer === 'answerOne') {
-            correctAnswers += 1
-            localStorage.setItem("correctAnswers", correctAnswers)
             printResult.textContent = "Correct!"
         } else {
-            printResult.textContent = "Incorrect!"
+            printResult.textContent = "Incorrect! -10s"
+            secondsLeft = secondsLeft - 10
+
         }
-        j += 1
-        if (j === questions.length) {
-            window.location.href = "score.html"
-        }
-        questioN.textContent = questions[j].question
-        firstAnswer.textContent = questions[j].answer1
-        secondAnswer.textContent = questions[j].answer2
-        thirdAnswer.textContent = questions[j].answer3
-        fourthAnswer.textContent = questions[j].answer4
 
     } else if (event.target.matches("#answer2")) {
         if (questions[j].correctAnswer === 'answerTwo') {
-            correctAnswers += 1
-            localStorage.setItem("correctAnswers", correctAnswers)
             printResult.textContent = "Correct!"
         } else {
-            printResult.textContent = "Incorrect!"
+            printResult.textContent = "Incorrect! -10s"
+            secondsLeft = secondsLeft - 10
         }
-        j += 1
-        if (j === questions.length) {
-            window.location.href = "score.html"
-        }
-        questioN.textContent = questions[j].question
-        firstAnswer.textContent = questions[j].answer1
-        secondAnswer.textContent = questions[j].answer2
-        thirdAnswer.textContent = questions[j].answer3
-        fourthAnswer.textContent = questions[j].answer4
 
     } else if (event.target.matches("#answer3")) {
         if (questions[j].correctAnswer === 'answerThree') {
-            correctAnswers += 1
-            localStorage.setItem("correctAnswers", correctAnswers)
             printResult.textContent = "Correct!"
         } else {
-            printResult.textContent = "Incorrect!"
+            printResult.textContent = "Incorrect! -10s"
+            secondsLeft = secondsLeft - 10
         }
-        j += 1
-        if (j === questions.length) {
-            window.location.href = "score.html"
-        }
-        questioN.textContent = questions[j].question
-        firstAnswer.textContent = questions[j].answer1
-        secondAnswer.textContent = questions[j].answer2
-        thirdAnswer.textContent = questions[j].answer3
-        fourthAnswer.textContent = questions[j].answer4
 
     } else if (event.target.matches("#answer4")) {
         if (questions[j].correctAnswer === 'answerFour') {
-            correctAnswers += 1
-            localStorage.setItem("correctAnswers", correctAnswers)
             printResult.textContent = "Correct!"
         } else {
-            printResult.textContent = "Incorrect!"
+            printResult.textContent = "Incorrect! -10s"
+            secondsLeft = secondsLeft - 10
         }
-        j += 1
-        if (j === questions.length) {
-            window.location.href = "score.html"
-        }
+    }
+
+    j += 1
+
+    if (j < questions.length) {
         questioN.textContent = questions[j].question
         firstAnswer.textContent = questions[j].answer1
         secondAnswer.textContent = questions[j].answer2
         thirdAnswer.textContent = questions[j].answer3
         fourthAnswer.textContent = questions[j].answer4
+    } else {
+        localStorage.setItem("time", secondsLeft)
+        window.location.href = "score.html"
     }
-    console.log(j)
 }
+
+
 answers.addEventListener("click", handleClick)

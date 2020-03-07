@@ -4,7 +4,7 @@ let highScores = JSON.parse(localStorage.getItem("highscores")) || []
 
 
 listOfHighscores.innerHTML = highScores.map(score => {
-    return (`<li class="high-score">${score.name}-${score.score}</li>`)
+    return (`<li class="high-score">${score.name}:${score.score}</li>`)
 }).join('')
 
 let playAgain = document.querySelector("#play-again")
