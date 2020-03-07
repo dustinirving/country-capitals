@@ -131,6 +131,9 @@ function handleClick(event) {
         thirdAnswer.textContent = questions[j].answer3
         fourthAnswer.textContent = questions[j].answer4
     } else {
+        if (secondsLeft < 0) {
+            secondsLeft = 0
+        }
         localStorage.setItem("time", secondsLeft)
         window.location.href = "score.html"
     }
