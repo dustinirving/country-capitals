@@ -1,5 +1,7 @@
 # country-capitals
 
+https://dustinirving.github.io/country-capitals/
+
 ## Description
 The main goal of this project was to create a quiz by updating the DOM with javascript. As the user answers the questions, the DOM is updated with the next question. The user is given 60 seconds to complete the quiz. The remaining time left after completing the quiz is the user's final score. For every incorrect answer, the user loses 10 seconds. The user is prompted to enter their name. When the user enters his or her name this along with their score is entered into a highscores list. The highscores are sorted, so the highest score is at the top of the list, and the lowest at the bottom. The values are stored in local storage, so they are not lost.
 
